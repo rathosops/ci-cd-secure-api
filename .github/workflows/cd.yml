@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: read
-  packages: write
-  security-events: write
 
 concurrency:
   group: cd-${{ github.ref }}
@@ -22,6 +20,11 @@ jobs:
   build-scan-push:
     name: Build, scan and push Docker image
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      security-events: write
 
     steps:
       - name: Checkout repository
@@ -62,24 +65,20 @@ jobs:
           exit-code: "1"
 
       - name: Upload Trivy SARIF report
-        uses: github/codeql-action/upload-sarif@v3
-        if: always()
+        uses: github/codeql-action/upload-sarif@v4
+        if: always() && hashFiles('trivy-results.sarif') != ''
         with:
           sarif_file: trivy-results.sarif
 
       - name: Upload security scan artifact
         uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && hashFiles('trivy-results.sarif') != ''
         with:
           name: trivy-results
           path: trivy-results.sarif
-          if-no-files-found: error
+          if-no-files-found: warn
 
       - name: Push Docker image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: |
-            ${{ env.IMAGE_REF }}:${{ github.sha }}
-            ${{ env.IMAGE_REF }}:latest
+        run: |
+          docker push ${{ env.IMAGE_REF }}:${{ github.sha }}
+          docker push ${{ env.IMAGE_REF }}:latest

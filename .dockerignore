@@ -32,9 +32,6 @@ dist
 .env
 .env.*
 
-# Documentation not required in the runtime image
-README.md
-
 # Editor and OS files
 .vscode
 .idea
