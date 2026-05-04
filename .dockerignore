@@ -1,0 +1,45 @@
+# Git
+.git
+.github
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv
+venv
+env
+
+# Test and coverage artifacts
+.pytest_cache
+.coverage
+coverage.xml
+htmlcov
+
+# Type checker and linter cache
+.mypy_cache
+.ruff_cache
+
+# Build artifacts
+build
+dist
+*.egg-info
+
+# Local configuration and secrets
+.env
+.env.*
+
+# Documentation not required in the runtime image
+README.md
+
+# Editor and OS files
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Tests are not needed in the runtime image
+tests
