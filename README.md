@@ -7,14 +7,11 @@
 ![Security](https://img.shields.io/badge/Security-DevSecOps-red)
 
 API simples em Python criada para demonstrar um fluxo profissional de **CI/CD com qualidade, testes, Docker e segurança automatizada**.
-
-O objetivo deste projeto não é construir uma API complexa. O objetivo é criar um projeto de portfólio bem organizado, fácil de explicar em entrevistas e com práticas reais de DevOps e DevSecOps.
-
 ---
 
 ## Objetivo do projeto
 
-Este projeto foi criado para demonstrar que é possível construir uma aplicação pequena, mas com uma base profissional.
+Criado para demonstrar que é possível construir uma aplicação pequena, mas com uma base profissional.
 
 Ele cobre:
 
@@ -30,10 +27,6 @@ Ele cobre:
 - automação local com Makefile;
 - hooks locais com pre-commit;
 - atualização automatizada de dependências com Dependabot.
-
-A frase principal para explicar este projeto em uma entrevista é:
-
-> Eu construí uma API simples em Python e implementei um pipeline CI/CD com testes, qualidade de código, análise de segurança, scan de dependências, scan de secrets, build Docker e publicação de imagem.
 
 ---
 
